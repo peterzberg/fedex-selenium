@@ -3,6 +3,7 @@ import {Config} from 'protractor';
 export let config: Config = {
   framework: 'jasmine',
   capabilities: {
+    elementScrollBehavior: '1',
     browserName: 'chrome'
   },
   specs: [ 'test-spec.js' ],

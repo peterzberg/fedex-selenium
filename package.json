@@ -20,6 +20,7 @@
   "homepage": "https://github.com/peterzberg/fedex-selenium#readme",
   "dependencies": {
     "@types/jasmine": "2.6.2",
+    "jasmine-promise-matchers": "^2.4.0",
     "protractor": "5.2.0",
     "typescript": "2.5.3"
   }
