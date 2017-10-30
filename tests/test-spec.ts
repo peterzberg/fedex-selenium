@@ -10,20 +10,19 @@ import {browser, element, by} from 'protractor';
 
 
 describe('KV Happy Case', () => {
-  it('should run until the end', () => {
+  it('should run until the end', async function() {
     let personenPage = new PersonenPage();
-    let neuePerson: NeuePersonComponent = personenPage.get();
-    neuePerson.setGeschlecht(Geschlecht.WEIBLICH);
-    neuePerson.setGeburtsdatum(19, 8, 1981);
-    neuePerson.setVorname('Test');
-    neuePerson.setPostleitzahl(6006, 'Luzern');
-    neuePerson.speichern();
-    personenPage.individuellZusammenstellen();
+    let neuePerson: NeuePersonComponent = await personenPage.get();
+    await neuePerson.setGeschlecht(Geschlecht.WEIBLICH);
+    await neuePerson.setGeburtsdatum(19, 8, 1981);
+    await neuePerson.setVorname('Test');
+    await neuePerson.setPostleitzahl(6006, 'Luzern');
+    await neuePerson.speichern();
+    await personenPage.individuellZusammenstellen();
     let individuellPage = new IndividuellPage();
-    individuellPage.setzeGrundversicherung(Grundversicherung.STANDARD);
-    //individuellPage.setzeBudgetTyp(BudgetTyp.SPARSAM);
-    individuellPage.setzeSpitalTyp(SpitalTyp.HALBPRIVAT);
-    individuellPage.setzeWeitereLeistungen([WeitereLeistungen.ALTERNATIV, WeitereLeistungen.FITNESS])
-    browser.sleep(10000);
+    await individuellPage.setzeGrundversicherung(Grundversicherung.STANDARD)
+    await individuellPage.setzeBudgetTyp(BudgetTyp.SPARSAM);        
+    await individuellPage.setzeSpitalTyp(SpitalTyp.HALBPRIVAT);
+    await individuellPage.setzeWeitereLeistungen([WeitereLeistungen.ALTERNATIV, WeitereLeistungen.FITNESS])
   });
 });

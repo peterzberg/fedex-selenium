@@ -1,34 +1,33 @@
 import {Geschlecht} from '../Geschlecht';
-import {browser, element, by} from 'protractor';
+import {promise, browser, element, by} from 'protractor';
 
 export class NeuePersonComponent {  
     vornameInput = element(by.css('#string_field_2'))
     speichernButton = element(by.css('button.right'))
 
 
-    setGeschlecht(geschlecht: Geschlecht)  {
-        element(by.css('label.button:nth-child(' + geschlecht + ')')).click();
+    async setGeschlecht(geschlecht: Geschlecht): Promise<void>  {
+        await element(by.css('label.button:nth-child(' + geschlecht + ')')).click();
     }
 
-    setGeburtsdatum(tag: number, monat: number, jahr: number){
-        element(by.css('.test-day')).sendKeys(tag);
-        element(by.css('.test-month')).sendKeys(monat);
-        element(by.css('.test-year')).sendKeys(jahr);
-        
+    async setGeburtsdatum(tag: number, monat: number, jahr: number): Promise<void> {
+        await element(by.css('.test-day')).sendKeys(tag);
+        await element(by.css('.test-month')).sendKeys(monat);
+        await element(by.css('.test-year')).sendKeys(jahr);
     }
 
-    setVorname(input: string){
-        this.vornameInput.sendKeys(input);
+    async setVorname(input: string): Promise<void>{
+        await this.vornameInput.sendKeys(input);
     }
 
-    setPostleitzahl(plz: number, ort: string, gemeinde?: string){
-        element(by.css('#zip_field_1')).sendKeys(plz);
+    async setPostleitzahl(plz: number, ort: string, gemeinde?: string): Promise<void>{
+        await element(by.css('#zip_field_1')).sendKeys(plz);
         let expected = ort + (gemeinde ? ' (' + gemeinde +')' : '');
-        element(by.cssContainingText('.item', expected)).click();
-    }
+        await element(by.cssContainingText('.item', expected)).click();            
+     }
 
-    speichern() {
-        this.speichernButton.click();
+    async speichern(): Promise<void> {
+        await this.speichernButton.click();
     }
     
 }

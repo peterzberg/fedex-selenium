@@ -5,13 +5,13 @@ export class PersonenPage {
 
   individuellZusammenstellenButton = element(by.css('.test-configure-yourself > button:nth-child(1)'))
 
-  get() : NeuePersonComponent {
-    browser.get('https://www.css.ch/de/home/privatpersonen/krankenkasse/praemienrechner.html/personen');
+  async get() : Promise<NeuePersonComponent> {
+    await browser.get('https://www.css.ch/de/home/privatpersonen/krankenkasse/praemienrechner.html/personen');
     return new NeuePersonComponent();
   }
 
-  individuellZusammenstellen(){
-    this.individuellZusammenstellenButton.click();
+  async individuellZusammenstellen(){
+    await this.individuellZusammenstellenButton.click();
   }
 
 }

@@ -1,3 +1,3 @@
 export enum WeitereLeistungen{
-    FITNESS='Fitness',ALTERNATIV='Alternaiv'
+    FITNESS='Fitness',ALTERNATIV='Alternativ'
 }

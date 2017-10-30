@@ -1,28 +1,28 @@
 import {Grundversicherung} from "./Grundversicherung";
 import {SpitalTyp} from "./SpitalTyp";
-import{BudgetTyp} from "./BudgetTyp";
-import{WeitereLeistungen} from "./WeitereLeistungen";
+import {BudgetTyp} from "./BudgetTyp";
+import {WeitereLeistungen} from "./WeitereLeistungen";
 import {browser, element, by} from 'protractor';
+import {promise} from 'selenium-webdriver'
 
 export class IndividuellPage {
 
-    setzeGrundversicherung(grundversicherung :Grundversicherung){
-        element(by.cssContainingText('div.scala-value > .value', grundversicherung)).click();
+    async setzeGrundversicherung(grundversicherung : Grundversicherung): Promise<void> {
+        await element(by.cssContainingText('div.scala-value > .value', grundversicherung)).click();
     }
 
-    setzeBudgetTyp(budgegtTyp : BudgetTyp){
-        element(by.cssContainingText('div.scala-value > .value', budgegtTyp)).click();
+    async setzeBudgetTyp(budgegtTyp : BudgetTyp): Promise<void> {
+        await browser.waitForAngular();
+        await element(by.cssContainingText('div.scala-value > .value', budgegtTyp)).click();
     }
 
-    setzeSpitalTyp(spitalTyp : SpitalTyp){
-        element(by.cssContainingText('div.scala-value > .value', spitalTyp)).click();
+    async setzeSpitalTyp(spitalTyp : SpitalTyp): Promise<void> {
+        await element(by.cssContainingText('div.scala-value > .value', spitalTyp)).click();
     }
 
-    setzeWeitereLeistungen(weitereLeistungen : WeitereLeistungen[]){
+    async setzeWeitereLeistungen(weitereLeistungen : WeitereLeistungen[]): Promise<void> {
         for ( let leistung of weitereLeistungen){
-            element(by.cssContainingText('div.tile > .leistung-text', leistung)).click();
+            await element(by.cssContainingText('div.tile > .leistung-text', leistung)).click();
         }
-
     }
-
 }
