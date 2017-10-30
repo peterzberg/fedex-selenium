@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  teamcity:
+    image: jetbrains/teamcity-server
+    restart: unless-stopped
+    volumes:
+      - ./teamcity/data:/data/teamcity_server/datadir
+      - ./teamcity/logs:/opt/teamcity/logs
+    ports:
+      - 8111:8111
+
+  teamcity-agent:
+    image: jetbrains/teamcity-agent
+    restart: unless-stopped
+    volumes:
+      - ./teamcity-agent/conf:/data/teamcity_agent/conf
+    environment:
+      - SERVER_URL=http://teamcity:8111
+      - AGENT_NAME=Fedex
+    depends_on:
+    - teamcity
