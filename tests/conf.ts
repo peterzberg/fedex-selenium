@@ -1,5 +1,8 @@
 import {Config} from 'protractor';
 
+let host:string = process.env.seleniumHost ? process.env.seleniumHost : 'localhost';
+let port:string = process.env.seleniumPort ? process.env.seleniumPort : '4444'
+
 export let config: Config = {
   framework: 'jasmine',
   capabilities: {
@@ -7,7 +10,7 @@ export let config: Config = {
     browserName: 'chrome'
   },
   specs: [ 'test-spec.js' ],
-  seleniumAddress: 'http://192.168.1.103:4444/wd/hub',
+  seleniumAddress: 'http://' + host + ':' + port + '/wd/hub',
   directConnect: false,
   SELENIUM_PROMISE_MANAGER: true,
   // You could set no globals to true to avoid jQuery '$' and protractor '$'
