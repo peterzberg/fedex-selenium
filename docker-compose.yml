@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   teamcity:
@@ -23,17 +23,20 @@ services:
   
   teamcity-agent-nodejs:
     image: teamcity-agent-nodejs:latest
+    privileged: true
     restart: unless-stopped
     volumes:
       - ./teamcity-agent-nodejs/conf:/data/teamcity_agent/conf
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - SERVER_URL=http://teamcity:8111
       - AGENT_NAME=FedexNodejs
+      - DOCKER_IN_DOCKER="start" 
     depends_on:
     - teamcity
 
-  selenium-chrome:
-    image: selenium/standalone-chrome
-    restart: unless-stopped
-    ports:
-      - 4444:4444
+#  selenium-chrome:
+#    image: selenium/standalone-chrome
+#    restart: unless-stopped
+#    ports:
+#      - 4444:4444
