@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "./node_modules/typescript/bin/tsc",
-    "pretest": "./node_modules/protractor/bin/webdriver-manager update",
-    "protractor": "npm run tsc && npm run pretest && ./node_modules/protractor/bin/protractor dist/conf.js"
+    "tsc": "node ./node_modules/typescript/bin/tsc",
+    "pretest": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "protractor": "npm run tsc && npm run pretest && node ./node_modules/protractor/bin/protractor dist/conf.js"
   },
   "repository": {
     "type": "git",
