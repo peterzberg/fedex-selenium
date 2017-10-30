@@ -1,0 +1,24 @@
+{
+  "name": "fedex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterzberg/fedex-selenium.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterzberg/fedex-selenium/issues"
+  },
+  "homepage": "https://github.com/peterzberg/fedex-selenium#readme",
+  "dependencies": {
+    "@types/jasmine": "2.6.2",
+    "protractor": "5.2.0",
+    "typescript": "2.5.3"
+  }
+}
