@@ -1,4 +1,5 @@
 /teamcity/
 /teamcity-agent/
+/teamcity-agent-nodejs/
 /node_modules/
 /dist/

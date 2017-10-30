@@ -6,7 +6,7 @@ export let config: Config = {
     browserName: 'chrome'
   },
   specs: [ 'test-spec.js' ],
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  seleniumAddress: 'http://selenium-chrome:4444/wd/hub',
   directConnect: true,
   // You could set no globals to true to avoid jQuery '$' and protractor '$'
   // collisions on the global namespace.

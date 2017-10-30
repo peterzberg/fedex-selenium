@@ -20,3 +20,20 @@ services:
       - AGENT_NAME=Fedex
     depends_on:
     - teamcity
+  
+  teamcity-agent-nodejs:
+    image: teamcity-agent-nodejs:latest
+    restart: unless-stopped
+    volumes:
+      - ./teamcity-agent-nodejs/conf:/data/teamcity_agent/conf
+    environment:
+      - SERVER_URL=http://teamcity:8111
+      - AGENT_NAME=FedexNodejs
+    depends_on:
+    - teamcity
+
+  selenium-chrome:
+    image: selenium/standalone-chrome
+    restart: unless-stopped
+    ports:
+      - 4444:4444
