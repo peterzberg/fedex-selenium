@@ -1,7 +1,7 @@
 # fedex-selenium
 
 1. Create teamcity-agent image with nodejs
-cd teamcity-agent-nodejs
+cd agent-nodejs
 docker build -t teamcity-agent-nodejs .
 
 2. Start everything
