@@ -3,3 +3,4 @@
 /teamcity-agent-nodejs/
 /node_modules/
 /dist/
+*.log
