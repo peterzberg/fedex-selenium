@@ -7,7 +7,7 @@ export let config: Config = {
     browserName: 'chrome'
   },
   specs: [ 'test-spec.js' ],
-  seleniumAddress: 'http://headless_chrome:4444/wd/hub',
+  seleniumAddress: 'http://192.168.1.103:4444/wd/hub',
   directConnect: false,
   SELENIUM_PROMISE_MANAGER: true,
   // You could set no globals to true to avoid jQuery '$' and protractor '$'
